@@ -119,7 +119,7 @@ Object-type playbooks live in [object-create/references](../object-create/refere
 ## Verification
 
 - Each row in the catalog has a local `SKILL.md` with non-empty YAML `description`.
-- `get_context({ topic: "knowledge api routing" })` still finds the knowledge-api copy in the monorepo.
+- `get_file({ path: "odl/knowledge-api-routing/SKILL.md" })` returns this skill.
 
 ## Related
 

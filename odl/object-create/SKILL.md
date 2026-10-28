@@ -23,7 +23,7 @@ Create a new ODL object. Field semantics live in the type playbook — open that
 ## Workflow
 
 1. **Pick the type** from the table below. Composite intents (restaurant + menu, companion post) go to the matching workflow skill, not this file.
-2. **Read the playbook** — `references/<objectType>.md`. Required baseline fields, value shapes, categories, and type-specific constraints are there. Do not draft from memory.
+2. **Read the playbook** — `references/<kebab>.md` (on-chain `object_type` `service_offer` → file `service-offer.md`). Required baseline fields, value shapes, categories, and type-specific constraints are there. Do not draft from memory.
 3. **Apply shared rules** — [object-content-standards](../object-content-standards/SKILL.md) (dedupe, locales, images, id format). Images: [ipfs-image-upload](../ipfs-image-upload/SKILL.md).
 4. **Build and broadcast** after explicit user approval — [hive-blockchain-broadcast](../hive-blockchain-broadcast/SKILL.md). HAS session: [hive-has-agent-wallet](../hive-has-agent-wallet/SKILL.md). Oversized body: [ipfs-file-upload](../ipfs-file-upload/SKILL.md).
 5. **Verify** the object on chain (`resolve_object`) against the playbook's verification section.

@@ -1,0 +1,11 @@
+{
+  "name": "odl-skills",
+  "description": "ODL agent skill catalog checks",
+  "scripts": {
+    "check": "node scripts/check-skills.cjs",
+    "test": "node scripts/check-skills.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

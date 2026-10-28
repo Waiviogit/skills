@@ -43,10 +43,6 @@ Kebab-case everywhere: directories, `SKILL.md` folders, reference files (`servic
 | `service_offer` | [service-offer](references/service-offer.md) |
 ```
 
-## Playbooks vs skills
-
-Type field semantics live in `odl/object-create/references/<type>.md`. They are not separate skills (no YAML). Add a row to the table in [odl/object-create/SKILL.md](odl/object-create/SKILL.md). Do not grow that table with workflow files (catalog ingest, listing copy, galleries) — kebab reference next to the type, linked from the type playbook.
-
 ## Progressive disclosure
 
 - `SKILL.md` body under **500 lines**. Agent is already smart; only add what it would not know.
@@ -59,4 +55,4 @@ Type field semantics live in `odl/object-create/references/<type>.md`. They are 
 1. `odl/<kebab-name>/SKILL.md` with YAML `name` matching the folder.
 2. `description` includes `Use when …`.
 3. Catalog row in [odl/knowledge-api-routing/SKILL.md](odl/knowledge-api-routing/SKILL.md) (decision table and local skill catalog).
-4. Verify: `name` == dirname; relative links resolve; no snake_case filenames under `odl/`.
+4. Verify: `name` == dirname; relative links resolve; no snake_case filenames under `odl/`. Run `npm test` before push.
