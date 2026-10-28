@@ -1,6 +1,9 @@
 # ODL agent skills
 
 Cursor/Codex agent skills for Open Data Layer.
+
+Authoring rules for agents: [AGENTS.md](AGENTS.md).
+
 ## Layout
 
 ```

@@ -17,33 +17,46 @@ End-to-end workflow for a restaurant with menu items. Read [object content stand
 - **Dishes/drinks** — create as `dish` or `drink` (or `recipe` when full recipe content exists), with `price`, `description`, `image`, and `parent` → restaurant. Add `menuItem` / [`list`](../object-create/references/list.md) on the restaurant for menu navigation.
 
 ```text
-restaurant-foo
-  └─ menuItem → dish-burger
-dish-burger
-  └─ parent → restaurant-foo
+restaurant
+  └─ menuItem title=Menu, style=standard → Menu list
+Menu list
+  └─ listItem → section lists (Breakfast / Lunch / Kids / …)
+section list
+  └─ listItem → dish / drink
+dish / drink
+  └─ parent → restaurant
 ```
+
+Never dump dishes as restaurant `menuItem` rows. Never Breakfast/Lunch/Kids as restaurant `menuItem`. Shop is a list of products + `menuItem` Shop — never `object_type shop`. One official page/PDF can `listItem` dishes directly on Menu.
+
+`menuItem` requires `style`. Official menu URL goes on the list `website`, not `link_to_web` on the restaurant row.
+
+Ids `{town}-{venue-slug}-{item-slug}` (same town prefix as the restaurant). Lists need name, description (source + currency), image (reuse restaurant avatar CID), parent, website. `sortCustom.exclude` is required (empty array).
+
+Cocktails/mocktails = `drink`, not `dish`. Add-ons stay on the parent. Skip extra sauce/side objects and rotting wine SKUs. Kids included when printed. Omit unknown prices. Never invent allergens.
 
 ## Steps
 
-1. **Dedupe restaurant** — search by name + address/website; skip create if match exists.
-2. **`get_object_create_playbook({ object_type: "restaurant" })`** — workHours, geo, address, tag categories.
-3. **Create restaurant** — baseline fields + factual hours/address from source only.
-4. **Per menu entry** (dedupe each):
-   - Search for existing `dish`/`drink`/`recipe`.
-   - Create child object with `price`, `description`, `image` (IPFS), and **`parent`** set to the restaurant `object_id`.
-   - Add `menuItem` on restaurant pointing to child `link_to_object` (translate `title` per locale rules; keep refs unchanged). Optional: group sections via [`list`](../object-create/references/list.md).
-5. **Broadcast in small batches** — restaurant first, then children (`parent` included), then `menuItem` updates if needed.
-6. **Verify** — `resolve_object` on restaurant and sample menu items; check `fields.menuItem`, `fields.workHours`, `fields.geo`, and `fields.parent` on children → restaurant.
+1. **Dedupe restaurant** (google_place_id / website). Create/enrich listing if missing — [restaurant](../object-create/references/restaurant.md) must-write fields first.
+2. **Create dishes/drinks** (`price`, `description`, **`parent`** → restaurant). **Omit `image`** until the avatar harvest.
+3. **Section lists** + `sortCustom`, then parent Menu list.
+4. **Restaurant `menuItem` Menu last.**
+5. **Avatar harvest** last — [image-generate dish](../image-generate/references/dish.md): white seamless studio 1024 `{ cid }`. Host generator with the plate still is the fallback. Uncertain / no still → omit. Do not write the restaurant logo cid onto dish `image`. After a studio cid is live, vote against the old table still.
+6. **Verify** — one Menu row; Menu children are section lists; child `parent` → restaurant; prices match source; drinks are drinks; dish `image` pixels sit on white 1024 when a still was found.
+
+Source order: printed board / in-venue photo / current official PDF → official site menu (current page) → first-party order (Toast/Square) for missing prices → delivery apps last; skip if they disagree.
 
 ## Images
 
-- Restaurant: exterior or logo when available; dish images per type playbook (square, white background for food).
-- No transient CDN URLs — IPFS before broadcast.
+- Restaurant avatar: [image-generate company](../image-generate/references/company.md). Photos: [restaurant-gallery](../object-create/references/restaurant-gallery.md).
+- Dish/drink: [image-generate dish](../image-generate/references/dish.md). No still or generator fail → omit. Never invent food. A menu of table-crop avatars = incomplete.
 
 ## Related playbooks
 
 - [restaurant](../object-create/references/restaurant.md)
+- [restaurant-listing-copy](../object-create/references/restaurant-listing-copy.md)
 - [dish](../object-create/references/dish.md)
 - [drink](../object-create/references/drink.md)
 - [list](../object-create/references/list.md) — menu sections
 - [recipe](../object-create/references/recipe.md) — when recipe-style content is required
+- [image-generate dish](../image-generate/references/dish.md)

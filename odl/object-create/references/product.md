@@ -86,8 +86,8 @@ Translate `name`, `description`, `featureList`, tag values. Keep `identifier`, `
 
 ## Images
 
-- Product packshot on white or neutral background.
-- Gallery for alternate angles; album before items.
+- Product packshot on white. Studio 1:1 via [image-generate product](../../image-generate/references/product.md); else pad 1:1 + `ipfs_upload_image`. Always `{ cid }`. Never marketplace `{ url }`.
+- Gallery for alternate angles: official HTTPS URLs; album before items.
 
 ## Special constraints
 
@@ -111,6 +111,7 @@ For variant groups:
 
 ## Related workflows
 
+- [Product catalog](product-catalog.md) — bulk SKU ingest
 - [Object content standards](../../object-content-standards/SKILL.md)
 - [business](business.md) — for merchant/manufacturer entities
 - Object variant options (`docs/apps/query-api/spec/object-options.md`) — options API semantics

@@ -55,5 +55,5 @@ Optional; often omitted for requests.
 
 ## Related workflows
 
-- [service_offer](service_offer.md)
+- [service-offer](service-offer.md)
 - [OBL offers and contracts](../../obl-offers-contracts/SKILL.md)

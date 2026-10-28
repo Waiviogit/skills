@@ -41,8 +41,8 @@ Translate `name`, `description`, tag `value`. Keep `price` numeric/format consis
 
 ## Images
 
-- Square food shot, white background, full plate visible.
-- Match restaurant menu photo when available; otherwise generate per recipe image brief.
+- Square food shot, white seamless studio, 1024×1024 IPFS `{ cid }` — [image-generate dish](../../image-generate/references/dish.md).
+- No studio frame (generator fail or no plate still) → **omit** `image`. Do not publish a table / wood / restaurant still as the live dish `image`. A square-crop of a table photo is not an avatar.
 
 ## Special constraints
 
@@ -61,4 +61,5 @@ Translate `name`, `description`, tag `value`. Keep `price` numeric/format consis
 ## Related workflows
 
 - [Restaurant menu workflow](../../restaurant-menu-workflow/SKILL.md)
+- [image-generate dish](../../image-generate/references/dish.md)
 - [restaurant](restaurant.md) · [recipe](recipe.md)

@@ -10,6 +10,13 @@ description: >-
 
 Add-on for publishing a **companion post** that references a created ODL object. For build, tags, beneficiaries, reward mode, and broadcast, follow **[hive-post-create.md](../hive-post-create/SKILL.md)**.
 
+## When not to use
+
+- Factual digest of a social post onto an **object** channel — [object-activity](../object-activity/SKILL.md).
+- Leo thread (Reviews > Threads) — [hive-thread-create](../hive-thread-create/SKILL.md).
+- Recipe cooking post body order — [recipe post format](../hive-post-create/references/recipe.md) (then this skill for object linking).
+- Review / gallery companion — [review](references/review.md) first.
+
 ## Prerequisites
 
 1. Object must exist on chain (indexer drops unknown ids from `post_objects`).
@@ -34,5 +41,7 @@ Add-on for publishing a **companion post** that references a created ODL object.
 ## Related
 
 - [Hive post create](../hive-post-create/SKILL.md) — full post playbook + `hive_build_post`
+- [Recipe post format](../hive-post-create/references/recipe.md)
+- [Review / gallery posts](references/review.md)
 - [Hive blockchain broadcast](../hive-blockchain-broadcast/SKILL.md)
 - [Object content standards](../object-content-standards/SKILL.md)

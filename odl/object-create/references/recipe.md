@@ -19,13 +19,14 @@ Recipe or cooking instructions with ingredients.
 | Update | Semantics |
 |--------|-----------|
 | `name` | Recipe title |
-| `description` | Appetizing dish summary — **not** step-by-step instructions |
-| `ingredients` | Multi-value JSON array; one ingredient per line (e.g. `🥚 2 eggs`) |
-| `servings` | Yield or portion count (e.g. `4`, `4-6`, `Serves 6`) |
-| `cookTime` | Total time (e.g. `15 mins`, `1 hr 30 mins`) |
-| `calories` | Total calories (e.g. `291 Calories`) |
-| `budget` | Cost to prepare: `$` (under $10), `$$` (under $100), `$$$` (under $1000) |
-| `nutrition` | Per serving: proteins, fats, carbohydrates |
+| `title` | Keywords, not a second name |
+| `description` | 2–4 short paragraphs, ~80–150 words, the **dish**; no promo; no method dump |
+| `ingredients` | Multi-value JSON array; clean strings, no brands (e.g. `🥚 2 eggs`) |
+| `servings` | Compact yield (e.g. `4`, `4-6`, `Serves 6`) |
+| `cookTime` | **Active** work only (mix, chop, assemble, fry/bake). Passive waits → Features, not cookTime |
+| `calories` | kcal **per serving** |
+| `budget` | `$` / `$$` / `$$$` from the shopping list |
+| `nutrition` | Macros **per serving** only — no calories, no servings count |
 | `featureList` | Optional highlights |
 | `identifier` | External SKU or canonical id when known |
 | `category` | Shop navigation categories (plural, e.g. `Breakfasts`, `Eggs`) |
@@ -41,7 +42,7 @@ The `recipe` object holds **catalog metadata** (title, summary, ingredients, tim
 
 1. Create the `recipe` object on chain (`name`, `description`, `ingredients`, `image`, …).
 2. Publish a companion post with the full cooking guide — numbered steps, techniques, tips, photos between steps.
-3. Link the post to the recipe via `json_metadata.objects` (see [companion post workflow](../../companion-post-workflow/SKILL.md) and [hive post create](../../hive-post-create/SKILL.md)).
+3. Link the post to the recipe via `json_metadata.objects` (see [companion post workflow](../../companion-post-workflow/SKILL.md), [hive post create](../../hive-post-create/SKILL.md), and [recipe post format](../../hive-post-create/references/recipe.md)).
 
 Keep `description` as a short appetizing summary for cards and search. Put the full “how to cook” narrative in the post body.
 
@@ -70,10 +71,11 @@ Follow [object content standards](../../object-content-standards/SKILL.md). Loca
 
 ## Images
 
-- Square 1:1, pure white background, full dish visible (no crop).
-- Commercial food photography brief: 50mm, f/8, sharp, no text/watermark.
-- Reference images: use for ingredients/shape only; do not copy blur or defects.
-- Upload to IPFS before broadcast.
+Avatar required `{ cid }`. Prefer dish studio 1:1 via [image-generate dish](../../image-generate/references/dish.md). If unavailable: crop a plated still, **pad** 1:1 white (do not crop the food to square), IPFS `{ cid }`. Do not ship a new recipe with no image.
+
+## Creator
+
+Named human → [`person`](person.md). Brand / kitchen / TV / show → [`business`](business.md). Identifier `value` = canonical HTTPS profile URL. Missing → create **full** person/business, then post. Description is the creator, not the triggering recipe, and **must not** restate website, email, address, or socials. Do not scrape Instagram from the agent IP.
 
 ## Special constraints
 
@@ -93,6 +95,7 @@ Follow [object content standards](../../object-content-standards/SKILL.md). Loca
 
 - [Companion post workflow](../../companion-post-workflow/SKILL.md) — object linking add-on
 - [Hive post create](../../hive-post-create/SKILL.md) — build + broadcast playbook
+- [Recipe post format](../../hive-post-create/references/recipe.md) — body order for the cooking post
 - [Restaurant menu workflow](../../restaurant-menu-workflow/SKILL.md) — when recipe is linked from a restaurant
 - [Object content standards](../../object-content-standards/SKILL.md)
 - [IPFS image upload](../../ipfs-image-upload/SKILL.md)

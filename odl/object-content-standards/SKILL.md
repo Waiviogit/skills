@@ -72,11 +72,24 @@ Use `get_update_schema({ update_type })` → `localizable` to decide per field.
 
 ## Broadcast
 
+- Sign as the **Hive account running this job**. `wallet_broadcast.account` = that account. Do not put Hive WIF in env or chat.
 - Check payload size warnings from `odl_build_object_create` (`perOpBytes`, `suggestIpfsBatch`, `requiresIpfsBatch`).
 - When **`requiresIpfsBatch`** is true, do **not** put large body text on chain in a direct `custom_json` — upload the envelope via [ipfs-file-upload](../ipfs-file-upload/SKILL.md) and broadcast **`batch_import`** only.
-- Broadcast in small groups per [HAS agent wallet](../hive-has-agent-wallet/SKILL.md) guidance.
+- Broadcast in small groups per [HAS agent wallet](../hive-has-agent-wallet/SKILL.md) guidance. Pack events under 8192 UTF-8. Hive 5 `custom_json` per block — wait ~3s. Confirm on Hive `get_transaction`.
 - On consecutive `expired` statuses, relogin before retry; verify chain state first.
 - Do not add duplicate object/user refs — web filters these; agent-wallet does not.
+
+## Favorite / exclusive / follow
+
+These are **different operations**. Never `object_authority`.
+
+| Guest action | Method |
+|--------------|--------|
+| Heart | `object_favorite` method `add` |
+| Unfavorite | `object_favorite` method `remove` |
+| Exclusive claim | `object_ownership` method `add`, `ownership_type: exclusive` |
+| Supervised | `object_ownership` `supervised` |
+| Follow bell | `object_follow` (not the favorites tab) |
 
 ## Verification
 

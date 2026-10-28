@@ -14,6 +14,7 @@ Playbook for publishing a **root Hive post** (article, recipe walkthrough, revie
 
 - User wants to publish a new root post on Hive.
 - After `object_create` — companion post that links to the object ([companion-post-workflow.md](../companion-post-workflow/SKILL.md)).
+- Recipe cooking post — body order in [recipe post format](references/recipe.md).
 - Only broadcast after **explicit user approval**.
 
 ## When not to use
@@ -112,8 +113,11 @@ Returns: `{ ops, opsCount: 2, json_metadata, warnings }`.
 
 For “post about a created object”, read [companion-post-workflow.md](../companion-post-workflow/SKILL.md) first, then follow this skill for build + broadcast.
 
+Recipe walkthrough: [recipe post format](references/recipe.md). Review / gallery companion: [review](../companion-post-workflow/references/review.md).
+
 ## Related
 
 - [Hive blockchain broadcast](../hive-blockchain-broadcast/SKILL.md) — signing and ODL ops
 - HAS agent wallet (`docs/apps/agent-wallet/spec/overview.md`) — `hive_build_post`, `wallet_broadcast`
 - [Companion post workflow](../companion-post-workflow/SKILL.md) — object-linking add-on
+- [Recipe post format](references/recipe.md) — cooking-post body order

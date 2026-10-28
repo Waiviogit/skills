@@ -16,6 +16,7 @@ Send and read **OSL channels and messages** (DM, group, object) using indexed qu
 - Agent must **send** plaintext or encrypted messages on behalf of a Hive account.
 - Agent should **react to inbound messages** via notifications push (not query-api polling).
 - Hermes or other MCP agents need a documented loop: pull → read → decrypt → reply → broadcast.
+- Factual digest of a social post onto an **object** channel — [object-activity](../object-activity/SKILL.md) (not a Leo thread, not a Hive post).
 
 ## When not to use
 
@@ -191,4 +192,5 @@ Cron every 30–60s: `notifications_pull({ waitMs: 5000 })`; spawn conversation 
 - [Hive blockchain broadcast](../hive-blockchain-broadcast/SKILL.md) — OSL envelope ops
 - [HAS agent wallet](../hive-has-agent-wallet/SKILL.md) — daemon setup
 - [Query API MCP routing](../query-api-mcp-routing/SKILL.md) — live read tools
+- [Object activity](../object-activity/SKILL.md) — social-post digest on an object channel
 - OSL messages spec (`docs/spec/osl/messages.md`) — on-chain payload reference

@@ -14,6 +14,26 @@ Agent-oriented service offering for OBL catalog discovery.
 
 `name`, `description`, `image` (product policy).
 
+One independently callable/comparable operation = one `service_offer`. Free ops are valid.
+
+**Name:** `{Provider} — {service/call name}` (em dash). Do not glue a raw API operation id + summary or repeat the provider. Provider ref stays in `provider`.
+
+**title:** `{METHOD} {path}` only. Keep `{id}`/`{username}`.
+
+**url:** full callable `{scheme}://{host}{path}`. Not docs. No keys/query/body.
+
+**description:** 1–2 sentences of what it DOES. Not marketing/docs. No price/auth/endpoint/pagination. Negative scope → limitations.
+
+**input:** auth header, required/optional params, accepted identifier forms. POST/PUT/PATCH: body shape (object vs array), required top-level fields — never only "JSON request body".
+
+**output:** meaning, not property dump. Async/batch: distinguish submission ack from final results.
+
+**limitations:** documented caveats only. Name the field/behavior. No pricing or invocation how-to.
+
+**Discovery:** `category` = broad domain. Tags Action/Data/Platform/Features only. Action = semantic task, not the transport. Prefer Search/Research/Extract/Generate/Analyze over Execute when that is the user-facing job. Platform = external ecosystem, never vendor.
+
+Official docs first, official pricing second. Conflicts → limitations. Do not invent.
+
 ## Field semantics
 
 | Update | Semantics |
@@ -61,5 +81,5 @@ Logo or service icon; IPFS before broadcast.
 ## Related workflows
 
 - [OBL offers and contracts](../../obl-offers-contracts/SKILL.md)
-- [legal_document](legal_document.md)
-- [service_request](service_request.md)
+- [legal-document](legal-document.md)
+- [service-request](service-request.md)

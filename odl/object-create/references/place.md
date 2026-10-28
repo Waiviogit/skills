@@ -48,6 +48,7 @@ Follow [object content standards](../../object-content-standards/SKILL.md): stab
 - Dedupe before create (search / `resolve_object`).
 - Web-compatible `object_id` when product URLs matter.
 - No duplicate object/user refs in one payload.
+- Town / area of dining venues from a listing dump → [place-import](place-import.md). Per-venue fields after import: [restaurant](restaurant.md).
 
 ## Verification
 
@@ -59,6 +60,7 @@ After broadcast, `resolve_object` and confirm:
 
 ## Related workflows
 
+- [Place import](place-import.md) — bulk listing → place/restaurant
 - [Object content standards](../../object-content-standards/SKILL.md)
 - [Object content routing](../../object-content-routing/SKILL.md)
 - [Hive blockchain broadcast](../../hive-blockchain-broadcast/SKILL.md)

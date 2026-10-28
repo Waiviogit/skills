@@ -41,7 +41,7 @@ Create a new ODL object. Field semantics live in the type playbook — open that
 | `group` | [group](references/group.md) |
 | `hashtag` | [hashtag](references/hashtag.md) |
 | `html` | [html](references/html.md) |
-| `legal_document` | [legal_document](references/legal_document.md) |
+| `legal_document` | [legal-document](references/legal-document.md) |
 | `link` | [link](references/link.md) |
 | `list` | [list](references/list.md) |
 | `map` | [map](references/map.md) |
@@ -53,8 +53,8 @@ Create a new ODL object. Field semantics live in the type playbook — open that
 | `recipe` | [recipe](references/recipe.md) |
 | `restaurant` | [restaurant](references/restaurant.md) |
 | `service` | [service](references/service.md) |
-| `service_offer` | [service_offer](references/service_offer.md) |
-| `service_request` | [service_request](references/service_request.md) |
+| `service_offer` | [service-offer](references/service-offer.md) |
+| `service_request` | [service-request](references/service-request.md) |
 | `shop` | [shop](references/shop.md) |
 | `skill` | [skill](references/skill.md) |
 | `webpage` | [webpage](references/webpage.md) |

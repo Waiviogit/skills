@@ -52,9 +52,13 @@ description: >-
 | Object/update payload shape | registry tools | `get_object_create_playbook` → `get_object_type` / `get_update_schema` |
 | Create ODL object (any type) | skill | [object-create.md](../object-create/SKILL.md) → `get_object_create_playbook` |
 | Create recipe / restaurant / menu content | skill / playbook | [object-content-routing.md](../object-content-routing/SKILL.md) · `get_object_create_playbook` |
+| Dish / product / company avatar or article-preview PNG | skill | [image-generate](../image-generate/SKILL.md) |
 | Publish Hive post / WAIV tags / companion post | skill | [hive-post-create.md](../hive-post-create/SKILL.md) |
+| Review / gallery companion post | skill | [companion-post-workflow](../companion-post-workflow/SKILL.md) → [review](../companion-post-workflow/references/review.md) |
 | Write object thread (Reviews > Threads) | skill | [hive-thread-create.md](../hive-thread-create/SKILL.md) |
+| Social digest on an object channel | skill | [object-activity](../object-activity/SKILL.md) |
 | OSL messaging (DM / group / object channels) | skill | [osl-messaging.md](../osl-messaging/SKILL.md) |
+| Renew local skills / agent-wallet | skill | [platform-renew](../platform-renew/SKILL.md) |
 | Wallet delegations / balances / swaps | skill | [wallet-delegation-swap-for-agents.md](../wallet-delegation-swap-for-agents/SKILL.md) |
 | Hive Engine deposit (BTC → SWAP.BTC) | skill | [hive-engine-deposit-for-agents](../hive-engine-deposit-for-agents/SKILL.md) |
 | Hive posting authority / act as grantor | skill + spec | [hive-account-authority-for-agents.md](../hive-account-authority-for-agents/SKILL.md) · `docs/spec/hive-account-authority.md` |
@@ -96,6 +100,9 @@ description: >-
 | [object-create](../object-create/SKILL.md) | ODL object create workflow (playbook lookup → build → broadcast) |
 | [object-content-routing](../object-content-routing/SKILL.md) | Object create intent → playbook / workflow |
 | [object-content-standards](../object-content-standards/SKILL.md) | Common dedupe, locales, images, broadcast rules |
+| [image-generate](../image-generate/SKILL.md) | Dish / product / company avatars and article-preview cards |
+| [object-activity](../object-activity/SKILL.md) | Factual social digest onto an object channel |
+| [platform-renew](../platform-renew/SKILL.md) | Refresh local skills and agent-wallet after a release |
 | [restaurant-menu-workflow](../restaurant-menu-workflow/SKILL.md) | Restaurant + menu composite workflow |
 | [companion-post-workflow](../companion-post-workflow/SKILL.md) | Post linked to created object |
 | [hive-post-create](../hive-post-create/SKILL.md) | Hive root post create + WAIV tags + `hive_build_post` |
@@ -107,7 +114,7 @@ description: >-
 
 Protocol spec (monorepo, not a local skill): `docs/spec/hive-account-authority.md`.
 
-Object-type playbooks (**27 files**) live in [object-create/references](../object-create/references/). Also available via `get_object_create_playbook({ object_type })`.
+Object-type playbooks live in [object-create/references](../object-create/references/), with extra workflow files (catalog ingest, listing copy, galleries) next to them. Also available via `get_object_create_playbook({ object_type })`.
 
 ## Verification
 

@@ -56,4 +56,4 @@ Not applicable.
 ## Related workflows
 
 - [OBL offers and contracts](../../obl-offers-contracts/SKILL.md)
-- [service_offer](service_offer.md)
+- [service-offer](service-offer.md)
