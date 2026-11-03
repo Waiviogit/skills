@@ -197,6 +197,7 @@ Import builders from `@opden-data-layer/hive-broadcast`:
 | `buildDelegateVestingSharesOp` | `delegate_vesting_shares` (active) |
 | `buildDelegateRcOp` | `custom_json` id `rc` — `{ from, delegatees[], max_rc }` (posting) |
 | `buildHiveEngineTokensOp` | Engine delegate/undelegate (active) |
+| `buildAccountUpdate2ProfileOp` (+ `mergeHiveProfileMetadata`) | `account_update2` — account profile in `posting_json_metadata` (posting). See [hive-account-profile-update](../hive-account-profile-update/SKILL.md) |
 
 ### Wallet delegations (agents)
 

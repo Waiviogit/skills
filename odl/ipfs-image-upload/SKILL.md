@@ -23,6 +23,8 @@ ipfs_upload_image({ filePath: "/absolute/or/relative/path/to/image.png" })
 
 Returns `{ cid, contentUrl, url? }`. **Never** write `url` or `contentUrl` into ODL updates when `cid` is present — on-chain value is `{ "cid": "<returned-cid>" }` only.
 
+**Exception — Hive account profile** (user avatar / cover, not an object): `profile_image` takes the full `contentUrl`, not `{ cid }`. Use [hive-account-profile-update](../hive-account-profile-update/SKILL.md).
+
 **Do not** bypass `ipfs_upload_image` with manual `curl` to the gateway. The tool sets the correct image MIME on multipart upload; raw `curl` without `Content-Type` yields `application/octet-stream` and gateway 400.
 
 ## Avatar preparation
@@ -125,5 +127,6 @@ Oversize `update_create` / object-create envelopes use **`ipfs_upload_file`** an
 ## Related skills
 
 - [ipfs-file-upload.md](../ipfs-file-upload/SKILL.md) — ODL JSON upload for `batch_import`
+- [hive-account-profile-update](../hive-account-profile-update/SKILL.md) — account (user) avatar and cover, not objects
 - [hive-has-agent-wallet.md](../hive-has-agent-wallet/SKILL.md) — HAS login and broadcast
 - [hive-blockchain-broadcast.md](../hive-blockchain-broadcast/SKILL.md) — ODL op construction

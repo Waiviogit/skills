@@ -17,6 +17,7 @@ Local NestJS daemon (`apps/agent-wallet`) that holds a **HAS session** (not priv
 - Autonomous agent (Cursor, shell) must broadcast ODL txs **without** session posting keys.
 - User approves each login and each broadcast on phone (or auto-approve rules in Keychain).
 - Agent builds `object_create` envelopes via MCP instead of copying web form logic.
+- Agent changes its own Hive account profile (avatar, cover, name, bio) — `hive_build_profile_update`, see [hive-account-profile-update](../hive-account-profile-update/SKILL.md).
 
 ## When not to use
 

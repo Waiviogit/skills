@@ -38,6 +38,7 @@ description: >-
 | Local dev: Docker, migrate, serve | overview | `docs/getting-started.md` |
 | New Hive account | skill | [hive-account-signup](../hive-account-signup/SKILL.md) |
 | Generate Hive keys for a free name (agent-wallet) | skill | [hive-account-keys-for-agents](../hive-account-keys-for-agents/SKILL.md) |
+| Account (user) avatar / cover / name / bio | skill | [hive-account-profile-update](../hive-account-profile-update/SKILL.md) |
 | Sign/broadcast Hive/ODL txs | skill | [hive-blockchain-broadcast](../hive-blockchain-broadcast/SKILL.md) |
 | Large ODL update / IPFS batch (`pageContent`, `skillContent`, … over 8192 B) | skill | [ipfs-file-upload](../ipfs-file-upload/SKILL.md) · [hive-has-agent-wallet](../hive-has-agent-wallet/SKILL.md) § IPFS batch |
 | HAS agent session / local agent-wallet | skill | [hive-has-agent-wallet](../hive-has-agent-wallet/SKILL.md) |
@@ -87,6 +88,7 @@ description: >-
 | [setup-workspace](../setup-workspace/SKILL.md) | Sidecar agent: clone repo, path contract |
 | [hive-account-signup](../hive-account-signup/SKILL.md) | Create a new Hive account |
 | [hive-account-keys-for-agents](../hive-account-keys-for-agents/SKILL.md) | Generate master password + private and public keys for a free Hive name |
+| [hive-account-profile-update](../hive-account-profile-update/SKILL.md) | Hive account profile (avatar, cover, name, bio) via `account_update2` |
 | [hive-blockchain-broadcast](../hive-blockchain-broadcast/SKILL.md) | Sign and broadcast ODL / Hive ops |
 | [hive-has-agent-wallet](../hive-has-agent-wallet/SKILL.md) | Local HAS agent-wallet MCP daemon |
 | [has-login-from-chat](../has-login-from-chat/SKILL.md) | HAS login via webLink in Telegram/Slack |
