@@ -28,7 +28,7 @@ Title + description = listing copy (why this house). No card fields, no aisle du
 
 ## Fields
 
-Copy when source has a value: ASINs + UPC/GTIN + MPN, price `$N.NN` (empty → leave existing; harvest snapshot is the listing — a later shop move is not a miss unless the job is a price refresh), `option` `{category,value,position,image URL}`, `featureList` (skip Brand Name/Color/Manufacturer/Item Weight/Dimensions/UPC), Shop `category` = department names from Amazon `category_path` **or** the shop’s nav/About taxonomy (not Category tags). **Ban** All products / Uncategorized / Best Sellers / New Arrival / Sale / Featured. Empty, tags-only, or a catch-all = incomplete. `productWeight`/`size` from **this** SKU only, Photos HTTPS (largest still), Buy button, website `{ title: host without www, link }` (never the product name).
+Copy when source has a value: ASINs + UPC/GTIN + MPN, price `$N.NN` (empty → leave existing), `option` `{category,value,position,image URL}`, `featureList` (skip Brand Name/Color/Manufacturer/Item Weight/Dimensions/UPC), Shop `category` = department names from Amazon `category_path` **or** the shop’s nav/About taxonomy (not Category tags). **Ban** All products / Uncategorized / Best Sellers / New Arrival / Sale / Featured. Empty, tags-only, or a catch-all = incomplete. `productWeight`/`size` from **this** SKU only, Photos HTTPS (largest still), Buy button, website `{ title: host without www, link }` (never the product name).
 
 Ratings: always create `aggregateRating` Quality and Value. First `rank_vote` only if this SKU’s source score is a number — vote Value, `round(score/5*10000)`. No source score → fields only. One number → Value not Quality.
 
@@ -37,7 +37,6 @@ Tags: always Category + Pros. Cons **only** with strong evidence. No reviews and
 `featureList`: technical_details keys, or LABEL: rest. Never key `Feature`. Website is required when a product URL exists.
 
 Avatar: first unique packshot for this SKU. Studio 1:1 via [image-generate product](../../image-generate/references/product.md); else pad 1:1 + `ipfs_upload_image`. Always `{ cid }`. Never marketplace `{ url }`. **One CID per look** — different-looking siblings each get their own cid.
-Furniture covers / slipcovers / sofa throws: prefer in-situ (cover on the furniture) over a folded textile on white.
 
 ## Merchant site (not Amazon)
 

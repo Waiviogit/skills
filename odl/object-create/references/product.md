@@ -73,7 +73,6 @@ Do **not** put conflicting prices on one object via multiple `option` rows — s
 
 - Shop `category` — left-rail departments. Amazon: one row per `category_path[].name` in listed order. Merchant: nav / collection menu / About taxonomy (Home, Pet, Car, Workout); a SKU may sit in more than one aisle. No product-page breadcrumb is not a skip. **Ban:** All products, Uncategorized, Best Sellers, New Arrival, Sale, Featured, and copying class tags into `category`. Empty, tags-only, or a catch-all = incomplete.
 - Discover: `tagCategory` / `tagCategoryItem` keys `Category`, `Pros`, `Cons`; `Quality`, `Value` rating dimensions
-- Harvest `price` is the listing. A later shop change is not a miss and is not a rewrite unless the job is a price refresh.
 
 ## Locales
 
@@ -87,8 +86,7 @@ Translate `name`, `description`, `featureList`, tag values. Keep `identifier`, `
 
 ## Images
 
-- Default: product packshot on white. Studio 1:1 via [image-generate product](../../image-generate/references/product.md); else pad 1:1 + `ipfs_upload_image`. Always `{ cid }`. Never marketplace `{ url }`.
-- Furniture covers / slipcovers / sofa throws: prefer an in-situ still (cover on the sofa or chair) over a folded textile on white — the product is unreadable without the furniture. Still 1:1 `{ cid }`; pad, do not crop the cover off.
+- Product packshot on white. Studio 1:1 via [image-generate product](../../image-generate/references/product.md); else pad 1:1 + `ipfs_upload_image`. Always `{ cid }`. Never marketplace `{ url }`.
 - Gallery for alternate angles: official HTTPS URLs; album before items.
 
 ## Special constraints
