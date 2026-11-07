@@ -25,9 +25,9 @@ Product or sellable item with catalog fields.
 | `productWeight`, `size` | Physical attributes for this SKU |
 | `merchant`, `manufacturer`, `brand` | Object refs to business entities |
 | `featureList` | Bullet features from spec sheet |
-| `category` | Shop navigation categories (plural, relevant set) |
+| `category` | Shop navigation departments (plural, from the shop’s own breadcrumbs/collections only). **Not** discover `tagCategoryItem` Category tags |
 | `saleEvent` | Promotional window when applicable |
-| `website` | Canonical product URL |
+| `website` | `{ title: host without www, link }` — never the product name |
 
 Schema details: `get_update_schema({ update_type })`.
 
@@ -71,8 +71,9 @@ Do **not** put conflicting prices on one object via multiple `option` rows — s
 
 ## Categories and tags (soft)
 
-- Shop `category` — type-relevant plural categories
-- Discover: `Category`, `Pros`, `Cons` tag keys; `Quality`, `Value` rating dimensions
+- Shop `category` — type-relevant plural departments from the merchant breadcrumb/collection path. Required when the shop has departments. Discover Category tags do **not** replace this field. Category tags with no `category` rows = incomplete.
+- Discover: `tagCategory` / `tagCategoryItem` keys `Category`, `Pros`, `Cons`; `Quality`, `Value` rating dimensions
+- Harvest `price` is the listing. A later shop change is not a miss and is not a rewrite unless the job is a price refresh.
 
 ## Locales
 
@@ -86,7 +87,8 @@ Translate `name`, `description`, `featureList`, tag values. Keep `identifier`, `
 
 ## Images
 
-- Product packshot on white. Studio 1:1 via [image-generate product](../../image-generate/references/product.md); else pad 1:1 + `ipfs_upload_image`. Always `{ cid }`. Never marketplace `{ url }`.
+- Default: product packshot on white. Studio 1:1 via [image-generate product](../../image-generate/references/product.md); else pad 1:1 + `ipfs_upload_image`. Always `{ cid }`. Never marketplace `{ url }`.
+- Furniture covers / slipcovers / sofa throws: prefer an in-situ still (cover on the sofa or chair) over a folded textile on white — the product is unreadable without the furniture. Still 1:1 `{ cid }`; pad, do not crop the cover off.
 - Gallery for alternate angles: official HTTPS URLs; album before items.
 
 ## Special constraints
@@ -94,6 +96,7 @@ Translate `name`, `description`, `featureList`, tag values. Keep `identifier`, `
 - Dedupe by `identifier` or canonical URL before create.
 - `merchant` ref must exist or be created first.
 - One object = one sellable SKU. Use `option` for axes on that SKU; use `productGroupId` siblings when SKUs diverge.
+- Size/color radios with different SKU or price → siblings + `option` on each. Verify `get_object_options`. Empty options while the shop has size or color radios = incomplete.
 
 ## Verification
 

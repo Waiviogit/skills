@@ -57,7 +57,7 @@ Use `get_update_schema({ update_type })` → `localizable` to decide per field.
 
 | Update | Purpose | Rules |
 |--------|---------|-------|
-| `category` | Shop navigation (resolved projection, up to ~15) | Type-specific relevant set; use plural shop categories when appropriate |
+| `category` | Shop navigation (resolved projection, up to ~15) | Type-specific plural departments from the shop’s own breadcrumbs/collections. Discover `tagCategoryItem` Category tags do **not** replace this field |
 | `tagCategory` + `tagCategoryItem` | Discover filters | `category` key **only** from `supposed_updates`; values are soft examples |
 | No supposed tag categories | — | Do not invent names; omit tags or discover existing platform vocabulary first |
 

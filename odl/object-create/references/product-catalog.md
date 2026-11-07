@@ -28,7 +28,7 @@ Title + description = listing copy (why this house). No card fields, no aisle du
 
 ## Fields
 
-Copy when source has a value: ASINs + UPC/GTIN + MPN, price `$N.NN` (empty → leave existing), `option` `{category,value,position,image URL}`, `featureList` (skip Brand Name/Color/Manufacturer/Item Weight/Dimensions/UPC), departments = source breadcrumb names in order only, `productWeight`/`size` from **this** SKU only, Photos HTTPS (largest still), Buy button, website `{Amazon, dp URL}` when that is the listing.
+Copy when source has a value: ASINs + UPC/GTIN + MPN, price `$N.NN` (empty → leave existing; harvest snapshot is the listing — a later shop move is not a miss unless the job is a price refresh), `option` `{category,value,position,image URL}`, `featureList` (skip Brand Name/Color/Manufacturer/Item Weight/Dimensions/UPC), shop `category` = source breadcrumb/collection names in order only (no invented aisles; this is **not** Category tags), `productWeight`/`size` from **this** SKU only, Photos HTTPS (largest still), Buy button, website `{ title: host without www, link }` (never the product name).
 
 Ratings: always create `aggregateRating` Quality and Value. First `rank_vote` only if this SKU’s source score is a number — vote Value, `round(score/5*10000)`. No source score → fields only. One number → Value not Quality.
 
@@ -37,6 +37,7 @@ Tags: always Category + Pros. Cons **only** with strong evidence. No reviews and
 `featureList`: technical_details keys, or LABEL: rest. Never key `Feature`. Website is required when a product URL exists.
 
 Avatar: first unique packshot for this SKU. Studio 1:1 via [image-generate product](../../image-generate/references/product.md); else pad 1:1 + `ipfs_upload_image`. Always `{ cid }`. Never marketplace `{ url }`. **One CID per look** — different-looking siblings each get their own cid.
+Furniture covers / slipcovers / sofa throws: prefer in-situ (cover on the furniture) over a folded textile on white.
 
 ## Merchant site (not Amazon)
 
@@ -44,7 +45,8 @@ A shop URL is a full pack. A factory/social demo with no marketplace URL: watch 
 
 Omit `price` when the shop is quote-only. Omit `address` when `postal_code` is unknown. `telephone` value is `{ value: "<number>" }`.
 
-Size/amount configurator with different SKU or price → sibling products, shared `productGroupId`, one Size `option` each. Drive live radios until URL+SKU+price change; do not invent SKUs. One SKU → omit option and productGroupId. Verify `get_object_options`.
+Size/color/amount configurator with different SKU or price → sibling products, shared `productGroupId`, one `option` per axis on each sibling. Drive live radios until URL+SKU+price change; do not invent SKUs. One SKU → omit option and productGroupId. Verify `get_object_options`. Empty options while the shop has size or color radios = incomplete.
+Shop `category` (department list) is required when the shop has collections/breadcrumbs. Discover Category tags do not replace it.
 
 Garbled studio labels → IPFS the official 1:1 packshot. Description: listing copy, not dose/ingredient dump. Pros: real labels only.
 

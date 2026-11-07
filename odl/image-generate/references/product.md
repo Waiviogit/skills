@@ -2,6 +2,8 @@
 
 Edit an official packshot. Do not rewrite this into a prettier-product brief. HTTP `aspect_ratio: "1:1"`, `resolution: "1k"`. Non-square → re-edit, do not pad. Downscale huge packshots (max side ~1536) before edit.
 
+**Furniture covers / slipcovers / sofa throws:** do not strip the sofa. The product is unreadable as a folded textile on white. Use an in-situ still (cover on the sofa or chair) as the 1:1 `{ cid }` avatar; pad, do not crop the cover off. Skip the studio white-packshot prompt below for that class. White packshot remains the default for goods that are themselves the object (appliances, boxed SKUs).
+
 ```
 OUTPUT — HARD REQUIREMENT: Create a square 1:1 image, composed natively as a square product avatar. Do not output landscape or portrait.
 Create a photorealistic professional studio photograph of the exact physical product shown in the reference photo.
