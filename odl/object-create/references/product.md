@@ -71,7 +71,7 @@ Do **not** put conflicting prices on one object via multiple `option` rows — s
 
 ## Categories and tags (soft)
 
-- Shop `category` — type-relevant plural departments from the merchant breadcrumb/collection path. Required when the shop has departments. Discover Category tags do **not** replace this field. Category tags with no `category` rows = incomplete.
+- Shop `category` — left-rail departments. Amazon: one row per `category_path[].name` in listed order. Merchant: nav / collection menu / About taxonomy (Home, Pet, Car, Workout); a SKU may sit in more than one aisle. No product-page breadcrumb is not a skip. **Ban:** All products, Uncategorized, Best Sellers, New Arrival, Sale, Featured, and copying class tags into `category`. Empty, tags-only, or a catch-all = incomplete.
 - Discover: `tagCategory` / `tagCategoryItem` keys `Category`, `Pros`, `Cons`; `Quality`, `Value` rating dimensions
 - Harvest `price` is the listing. A later shop change is not a miss and is not a rewrite unless the job is a price refresh.
 
