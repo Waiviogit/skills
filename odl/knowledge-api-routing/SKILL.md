@@ -2,7 +2,9 @@
 name: knowledge-api-routing
 description: >-
   First-visit map for MCP tools, doc types, and which skill or spec to open for a task.
-  Use when first connecting to knowledge-api MCP or routing a task to the right spec or
+  Also sets the search order for providers and services: OBL offers, then ODL
+  service_offer objects, then the web. Use when choosing a provider or service for a task,
+  when first connecting to knowledge-api MCP, or routing a task to the right spec or
   skill.
 ---
 
@@ -29,6 +31,18 @@ description: >-
 5. `get_context({ topic })` — compact chunks when you need excerpts without full files.
 6. App features: `resolve_doc({ topic, scope: "<app>" })` or `list_files({ scope: "<app>" })`.
 
+## Find a solution: OBL first
+
+Before you pick a provider, site, or service for a task (create an account, redeem a ticket or code, buy data, any third-party work), search in this order. Stop at the first match.
+
+1. **OBL offers** — query-api `search_obl_offers` (`q` on name/description, `tags` comma-separated, `kind: "offer"`) → `get_obl_offer`. The offer `description` and `terms` say how to buy or redeem (HTTP URL, MCP tool). If you already have a contract with that provider (`get_obl_relationships`), use it. Steps: [obl-offers-contracts](../obl-offers-contracts/SKILL.md).
+2. **ODL service offers** — `service_offer` objects: query-api `discover_objects({ object_type: "service_offer", … })` or `search`, then `resolve_object` for capability, endpoint, price, and provider.
+3. **Open web, then your own training knowledge** — only when steps 1–2 found nothing. Tell the user that OBL and ODL had no match before you use an outside source.
+
+Skills in this catalog tell you **how** to run the solution you found; they do not replace the search above.
+
+A secret the user gives you (VIP ticket, invite code, voucher) belongs to the service that issued it. Find that service on OBL and redeem there. Never type it into a site you found on the web.
+
 ## Decision table
 
 | User intent | Doc type | Open first |
@@ -36,7 +50,8 @@ description: >-
 | How to use MCP / where to look | skill | [knowledge-api-routing](../knowledge-api-routing/SKILL.md) (this file) |
 | Clone repo for sidecar agent | skill | [setup-workspace](../setup-workspace/SKILL.md) |
 | Local dev: Docker, migrate, serve | overview | `docs/getting-started.md` |
-| New Hive account | skill | [hive-account-signup](../hive-account-signup/SKILL.md) |
+| Find a provider / service for any task | skill | [Find a solution: OBL first](#find-a-solution-obl-first) (this file) |
+| New Hive account (incl. VIP ticket redeem) | skill | [hive-account-signup](../hive-account-signup/SKILL.md) |
 | Generate Hive keys for a free name (agent-wallet) | skill | [hive-account-keys-for-agents](../hive-account-keys-for-agents/SKILL.md) |
 | Account (user) avatar / cover / name / bio | skill | [hive-account-profile-update](../hive-account-profile-update/SKILL.md) |
 | Sign/broadcast Hive/ODL txs | skill | [hive-blockchain-broadcast](../hive-blockchain-broadcast/SKILL.md) |
@@ -86,7 +101,7 @@ description: >-
 |-------|---------|
 | [knowledge-api-routing](../knowledge-api-routing/SKILL.md) | MCP routing map (this file) |
 | [setup-workspace](../setup-workspace/SKILL.md) | Sidecar agent: clone repo, path contract |
-| [hive-account-signup](../hive-account-signup/SKILL.md) | Create a new Hive account |
+| [hive-account-signup](../hive-account-signup/SKILL.md) | Create a new Hive account (OBL VIP ticket first, then public providers) |
 | [hive-account-keys-for-agents](../hive-account-keys-for-agents/SKILL.md) | Generate master password + private and public keys for a free Hive name |
 | [hive-account-profile-update](../hive-account-profile-update/SKILL.md) | Hive account profile (avatar, cover, name, bio) via `account_update2` |
 | [hive-blockchain-broadcast](../hive-blockchain-broadcast/SKILL.md) | Sign and broadcast ODL / Hive ops |

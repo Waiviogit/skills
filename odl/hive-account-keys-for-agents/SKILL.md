@@ -92,7 +92,7 @@ Memo public key: <keys.memo.public>
 Wait for explicit **saved**.
 
 4. A path the user named is the delivery. Do not also copy the values into agent memory, the repo, `.env`, or `accounts.json` unless they later ask to import.
-5. Do not broadcast. The name is still free. Next step is a creator / `account_create` or a public provider — [hive-account-signup.md](../hive-account-signup/SKILL.md). That hand-off is public keys only.
+5. Do not broadcast. The name is still free. Next step is a VIP ticket redeem through an OBL offer, a creator / `account_create`, or a public provider — [hive-account-signup.md](../hive-account-signup/SKILL.md). That hand-off is public keys only.
 
 ## Hand-off for account creation
 
