@@ -180,8 +180,8 @@ Import builders from `@opden-data-layer/hive-broadcast`:
 | Action | When to use |
 |--------|-------------|
 | `update_create` only | Your own new field (MCP `odl_build_update_create`, gallery, object-create fields). Indexer **auto-inserts** creator validity vote `for` — **do not** add `update_vote`. |
-| `buildOdlUpdateVoteOp` | Approve/reject **someone else's** existing update (moderation). |
-| `buildOdlRankVoteOp` | Rank multi-cardinality alternatives. **Not** for single-cardinality (`image`, `title`, `name`, …). |
+| `buildOdlUpdateVoteOp` (agent-wallet `odl_build_update_vote`) | Approve/reject an **existing** update — someone else's, or your own earlier one. `against` is how a field value is “deleted” — [object-remove](../object-remove/SKILL.md). |
+| `buildOdlRankVoteOp` | Rank multi-cardinality alternatives (order only — never hides a value). **Not** for single-cardinality (`image`, `title`, `name`, …). |
 | `buildOdlUpdateCreateWithRankVoteOp` | `aggregateRating` only — bundled `update_create` + `rank_vote` in one op. |
 
 ### Standard Hive builders

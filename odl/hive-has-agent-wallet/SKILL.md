@@ -170,6 +170,7 @@ Tool names:
 | `odl_build_gallery_item` | Build `imageGalleryItem` op for an **existing** object (album ensure when needed) |
 | `ipfs_upload_file` | Upload ODL envelope JSON (inline `content` or `filePath`); max **10 MiB**; returns `{ cid }` |
 | `odl_build_batch_import` | Build one `batch_import` op referencing an IPFS CID from `ipfs_upload_file` |
+| `odl_build_update_vote` | Build one `update_vote` (`for` / `against` / `remove`) on an existing `update_id` — “delete a field value” = `against`, see [object-remove](../object-remove/SKILL.md) |
 | `has_broadcast` | Start sign flow; returns `requestId` |
 | `has_broadcast_status` | Poll: `pending` / `signed` / `rejected` / `error` / `expired` |
 
@@ -276,7 +277,7 @@ Same as [hive-blockchain-broadcast § Step 4](../hive-blockchain-broadcast/SKILL
 ## Votes (do not duplicate on create)
 
 - **`update_create`** (object create fields, `odl_build_update_create`, `odl_build_gallery_item`): chain-indexer inserts creator validity vote `for` automatically. Never broadcast a separate `update_vote` for your own new update.
-- **`update_vote`**: only to approve/reject **someone else's** existing update (moderation).
+- **`update_vote`** (`odl_build_update_vote`): approve or reject an **existing** update — someone else's, or your own earlier one. `against` is how a user's “delete / remove this value” is done; see [object-remove](../object-remove/SKILL.md).
 - **`rank_vote`**: multi-cardinality ranking only, or `aggregateRating` via `buildOdlUpdateCreateWithRankVoteOp`. Not for single-cardinality fields (`image`, `title`, `name`, …).
 
 ## Reject / failure handling

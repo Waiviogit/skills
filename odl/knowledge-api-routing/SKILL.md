@@ -67,6 +67,7 @@ A secret the user gives you (VIP ticket, invite code, voucher) belongs to the se
 | Domain rules (votes, governance, OBL norms) | spec | `docs/spec/README.md` · `docs/spec/open-business-layer.md` |
 | Object/update payload shape | registry tools | `get_object_create_playbook` → `get_object_type` / `get_update_schema` |
 | Create ODL object (any type) | skill | [object-create.md](../object-create/SKILL.md) → `get_object_create_playbook` |
+| “Delete / remove” a field value or an object | skill | [object-remove](../object-remove/SKILL.md) — value: `update_vote` against; object: `status` update |
 | Create recipe / restaurant / menu content | skill / playbook | [object-content-routing.md](../object-content-routing/SKILL.md) · `get_object_create_playbook` |
 | Dish / product / company avatar or article-preview PNG | skill | [image-generate](../image-generate/SKILL.md) |
 | Publish Hive post / WAIV tags / companion post | skill | [hive-post-create.md](../hive-post-create/SKILL.md) |
@@ -115,6 +116,7 @@ A secret the user gives you (VIP ticket, invite code, voucher) belongs to the se
 | [obl-ledger](../obl-ledger/SKILL.md) | OBL invoices, payments, balances, ledger |
 | [obl-disputes](../obl-disputes/SKILL.md) | OBL disputes and arbitration |
 | [object-create](../object-create/SKILL.md) | ODL object create workflow (playbook lookup → build → broadcast) |
+| [object-remove](../object-remove/SKILL.md) | “Delete / remove” → reject the update (field value) or set object status |
 | [object-content-routing](../object-content-routing/SKILL.md) | Object create intent → playbook / workflow |
 | [object-content-standards](../object-content-standards/SKILL.md) | Common dedupe, locales, images, broadcast rules |
 | [image-generate](../image-generate/SKILL.md) | Dish / product / company avatars and article-preview cards |
