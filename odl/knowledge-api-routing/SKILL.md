@@ -74,6 +74,7 @@ A secret the user gives you (VIP ticket, invite code, voucher) belongs to the se
 | Review / gallery companion post | skill | [companion-post-workflow](../companion-post-workflow/SKILL.md) → [review](../companion-post-workflow/references/review.md) |
 | Write object thread (Reviews > Threads) | skill | [hive-thread-create.md](../hive-thread-create/SKILL.md) |
 | Social digest on an object channel | skill | [object-activity](../object-activity/SKILL.md) |
+| Comment / reply drafts on a social post for a human to review | skill | [activity-comment-drafts](../activity-comment-drafts/SKILL.md) |
 | OSL messaging (DM / group / object channels) | skill | [osl-messaging.md](../osl-messaging/SKILL.md) |
 | Renew local skills / agent-wallet | skill | [platform-renew](../platform-renew/SKILL.md) |
 | Wallet delegations / balances / swaps | skill | [wallet-delegation-swap-for-agents.md](../wallet-delegation-swap-for-agents/SKILL.md) |
@@ -121,6 +122,7 @@ A secret the user gives you (VIP ticket, invite code, voucher) belongs to the se
 | [object-content-standards](../object-content-standards/SKILL.md) | Common dedupe, locales, images, broadcast rules |
 | [image-generate](../image-generate/SKILL.md) | Dish / product / company avatars and article-preview cards |
 | [object-activity](../object-activity/SKILL.md) | Factual social digest onto an object channel |
+| [activity-comment-drafts](../activity-comment-drafts/SKILL.md) | Comment / reply drafts handed to a human via an activity note import link |
 | [platform-renew](../platform-renew/SKILL.md) | Refresh local skills and agent-wallet after a release |
 | [restaurant-menu-workflow](../restaurant-menu-workflow/SKILL.md) | Restaurant + menu composite workflow |
 | [companion-post-workflow](../companion-post-workflow/SKILL.md) | Post linked to created object |

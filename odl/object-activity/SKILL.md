@@ -76,3 +76,4 @@ Body = description; then embeddable watch URL on its own line when video; then p
 
 - [osl-messaging](../osl-messaging/SKILL.md) — object-channel `message_create`
 - [hive-blockchain-broadcast](../hive-blockchain-broadcast/SKILL.md) — sign after user approval
+- [activity-comment-drafts](../activity-comment-drafts/SKILL.md) — comment / reply drafts on an activity item for a human to review
