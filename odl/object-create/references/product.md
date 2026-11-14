@@ -25,9 +25,9 @@ Product or sellable item with catalog fields.
 | `productWeight`, `size` | Physical attributes for this SKU |
 | `merchant`, `manufacturer`, `brand` | Object refs to business entities |
 | `featureList` | Bullet features from spec sheet |
-| `category` | Shop navigation categories (plural, relevant set) |
+| `category` | Shop navigation departments (Amazon `category_path` or merchant nav/About taxonomy; not a catch-all). **Not** discover `tagCategoryItem` Category tags |
 | `saleEvent` | Promotional window when applicable |
-| `website` | Canonical product URL |
+| `website` | `{ title: host without www, link }` — never the product name |
 
 Schema details: `get_update_schema({ update_type })`.
 
@@ -71,8 +71,8 @@ Do **not** put conflicting prices on one object via multiple `option` rows — s
 
 ## Categories and tags (soft)
 
-- Shop `category` — type-relevant plural categories
-- Discover: `Category`, `Pros`, `Cons` tag keys; `Quality`, `Value` rating dimensions
+- Shop `category` — left-rail departments. Amazon: one row per `category_path[].name` in listed order. Merchant: nav / collection menu / About taxonomy (Home, Pet, Car, Workout); a SKU may sit in more than one aisle. No product-page breadcrumb is not a skip. **Ban:** All products, Uncategorized, Best Sellers, New Arrival, Sale, Featured, and copying class tags into `category`. Empty, tags-only, or a catch-all = incomplete.
+- Discover: `tagCategory` / `tagCategoryItem` keys `Category`, `Pros`, `Cons`; `Quality`, `Value` rating dimensions
 
 ## Locales
 
@@ -94,6 +94,7 @@ Translate `name`, `description`, `featureList`, tag values. Keep `identifier`, `
 - Dedupe by `identifier` or canonical URL before create.
 - `merchant` ref must exist or be created first.
 - One object = one sellable SKU. Use `option` for axes on that SKU; use `productGroupId` siblings when SKUs diverge.
+- Size/color radios with different SKU or price → siblings + `option` on each. Verify `get_object_options`. Empty options while the shop has size or color radios = incomplete.
 
 ## Verification
 

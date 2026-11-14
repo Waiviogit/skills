@@ -28,7 +28,7 @@ Title + description = listing copy (why this house). No card fields, no aisle du
 
 ## Fields
 
-Copy when source has a value: ASINs + UPC/GTIN + MPN, price `$N.NN` (empty → leave existing), `option` `{category,value,position,image URL}`, `featureList` (skip Brand Name/Color/Manufacturer/Item Weight/Dimensions/UPC), departments = source breadcrumb names in order only, `productWeight`/`size` from **this** SKU only, Photos HTTPS (largest still), Buy button, website `{Amazon, dp URL}` when that is the listing.
+Copy when source has a value: ASINs + UPC/GTIN + MPN, price `$N.NN` (empty → leave existing), `option` `{category,value,position,image URL}`, `featureList` (skip Brand Name/Color/Manufacturer/Item Weight/Dimensions/UPC), Shop `category` = department names from Amazon `category_path` **or** the shop’s nav/About taxonomy (not Category tags). **Ban** All products / Uncategorized / Best Sellers / New Arrival / Sale / Featured. Empty, tags-only, or a catch-all = incomplete. `productWeight`/`size` from **this** SKU only, Photos HTTPS (largest still), Buy button, website `{ title: host without www, link }` (never the product name).
 
 Ratings: always create `aggregateRating` Quality and Value. First `rank_vote` only if this SKU’s source score is a number — vote Value, `round(score/5*10000)`. No source score → fields only. One number → Value not Quality.
 
@@ -44,7 +44,8 @@ A shop URL is a full pack. A factory/social demo with no marketplace URL: watch 
 
 Omit `price` when the shop is quote-only. Omit `address` when `postal_code` is unknown. `telephone` value is `{ value: "<number>" }`.
 
-Size/amount configurator with different SKU or price → sibling products, shared `productGroupId`, one Size `option` each. Drive live radios until URL+SKU+price change; do not invent SKUs. One SKU → omit option and productGroupId. Verify `get_object_options`.
+Size/color/amount configurator with different SKU or price → sibling products, shared `productGroupId`, one `option` per axis on each sibling. Drive live radios until URL+SKU+price change; do not invent SKUs. One SKU → omit option and productGroupId. Verify `get_object_options`. Empty options while the shop has size or color radios = incomplete.
+Shop `category` is required: Amazon path, or merchant nav/About departments (Home, Pet, Car, Workout). No breadcrumb is not a skip. Discover Category tags do not replace it. **Ban** All products / Uncategorized / Best Sellers / New Arrival.
 
 Garbled studio labels → IPFS the official 1:1 packshot. Description: listing copy, not dose/ingredient dump. Pros: real labels only.
 
