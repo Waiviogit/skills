@@ -25,7 +25,7 @@ Product or sellable item with catalog fields.
 | `productWeight`, `size` | Physical attributes for this SKU |
 | `merchant`, `manufacturer`, `brand` | Object refs to business entities |
 | `featureList` | Bullet features from spec sheet |
-| `category` | Shop navigation departments (plural, from the shop’s own breadcrumbs/collections only). **Not** discover `tagCategoryItem` Category tags |
+| `category` | Shop navigation departments (Amazon `category_path` or merchant nav/About taxonomy; not a catch-all). **Not** discover `tagCategoryItem` Category tags |
 | `saleEvent` | Promotional window when applicable |
 | `website` | `{ title: host without www, link }` — never the product name |
 
