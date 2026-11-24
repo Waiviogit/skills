@@ -55,6 +55,8 @@ description: >-
 | Memo key for encrypt | `get_memo_public_key` |
 | Hive L1 wallet summary | `get_user_hive_wallet` |
 | HP / RC delegation lists | `get_user_hive_hp_delegations`, `get_user_hive_rc_delegations` |
+| HIVE → BTC / LTC / ETH withdraw quote | `get_user_hive_withdraw_range`, `post_user_hive_withdraw_estimate` (create is web-only: the user signs the transfer) |
+| Receive HIVE paid in BTC / ETH / USDT / … (Changelly, any Hive account) | `get_hive_deposit_currencies`, `get_user_hive_deposit_range`, `post_user_hive_deposit_estimate`, `post_user_hive_deposit_create`, `get_user_hive_deposit_status`, `get_user_hive_deposit_history` — [changelly-hive-deposit-for-agents](../changelly-hive-deposit-for-agents/SKILL.md) |
 | WAIV / Engine balances | `get_user_waiv_wallet`, `get_user_engine_wallet` |
 | Engine token delegations | `get_user_engine_token_delegations` (symbol e.g. `WAIV`) |
 | Engine swaps / withdraw quotes | `get_user_engine_swap_list`, `post_user_engine_swap_quote`, `post_user_engine_withdraw_quote` |

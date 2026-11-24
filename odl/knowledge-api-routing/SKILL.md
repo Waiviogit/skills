@@ -79,6 +79,7 @@ A secret the user gives you (VIP ticket, invite code, voucher) belongs to the se
 | Renew local skills / agent-wallet | skill | [platform-renew](../platform-renew/SKILL.md) |
 | Wallet delegations / balances / swaps | skill | [wallet-delegation-swap-for-agents.md](../wallet-delegation-swap-for-agents/SKILL.md) |
 | Hive Engine deposit (BTC → SWAP.BTC) | skill | [hive-engine-deposit-for-agents](../hive-engine-deposit-for-agents/SKILL.md) |
+| Receive HIVE paid in BTC / ETH / USDT / … via Changelly (any Hive account) | skill | [changelly-hive-deposit-for-agents](../changelly-hive-deposit-for-agents/SKILL.md) |
 | Hive posting authority / act as grantor | skill + spec | [hive-account-authority-for-agents.md](../hive-account-authority-for-agents/SKILL.md) · `docs/spec/hive-account-authority.md` |
 | Coding style in this repo | agents | `AGENTS.md` or `apps/<app>/AGENTS.md` |
 
@@ -132,6 +133,7 @@ A secret the user gives you (VIP ticket, invite code, voucher) belongs to the se
 | [ipfs-file-upload](../ipfs-file-upload/SKILL.md) | Oversized ODL envelope → IPFS `batch_import` |
 | [ipfs-image-upload](../ipfs-image-upload/SKILL.md) | Image uploads for object updates |
 | [hive-engine-deposit-for-agents](../hive-engine-deposit-for-agents/SKILL.md) | Hive Engine deposit routing |
+| [changelly-hive-deposit-for-agents](../changelly-hive-deposit-for-agents/SKILL.md) | Changelly coin → HIVE deposit into any Hive account |
 
 Protocol spec (monorepo, not a local skill): `docs/spec/hive-account-authority.md`.
 
