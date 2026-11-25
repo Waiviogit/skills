@@ -98,7 +98,7 @@ To query indexed docs while coding:
 1. Configure Postgres + run migrations (see knowledge-api overview (`docs/apps/knowledge-api/spec/overview.md`)).
 2. `pnpm knowledge:reindex`
 3. `pnpm nx serve knowledge-api`
-4. Point MCP client at `http://localhost:7400/knowledge/mcp`
+4. Point MCP client at `http://localhost:7400/mcp` (public server: `https://<site>/mcp`)
 
 Specs remain the source of truth for behavior; source files implement it.
 
